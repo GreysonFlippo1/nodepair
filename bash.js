@@ -11,8 +11,9 @@ process.stdin.on('data', (data) => {
     else if(cmd === "ls"){
         ls();
     }
-    else if(cmd === "cat"){
-        cat();
+    else if(cmd.split(" ")[0] === "cat"){
+        fileName = cmd.split(" ")[1];
+        cat(fileName);
     }
     else{
         process.stdout.write('You typed ' + cmd);
